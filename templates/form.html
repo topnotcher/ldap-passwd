@@ -1,0 +1,111 @@
+<!doctype html>
+<head>
+	<title>LDAP Password Change</title>
+
+	<style type="text/css" media="screen">
+		body {
+			font-family: sans;
+			font-size: 67.5%;
+		}
+		fieldset {
+			width: 25%;
+			min-width: 400px;
+			margin: auto;
+		}
+		legend {
+			font-size: 1.8em;
+		}
+		label {
+			text-align: right;
+			width: 30%;
+			float: left;
+			font-size: 1.2em;
+			font-weight: bold;
+			text-align: right;
+		}
+		label:after {
+			content: ":";
+		}
+		input {
+			float: right;
+			width: 65%;
+			border: 1px solid #333;
+		}
+		fieldset>div {
+			width: 100%;
+			clear: both;
+			padding: 2px;
+		}
+		button {
+			float: right;
+			cursor: pointer;
+			padding: .1em .4em;
+			height: 1.7em;
+			background-color: #35b128;
+			border: 1px solid #33842a;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			border-radius: 10px;
+			-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+			-moz-box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+			box-shadow: 0 0 4px rgba(0, 0, 0, .75);
+			color: #f3f3f3;
+			font-size: 1.5em;
+		}
+		button:hover {
+			background-color: #399630;
+			-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .75);
+			-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .75);
+			box-shadow: 0 0 1px rgba(0, 0, 0, .75);
+		}
+		.error {
+			color: #f00;
+		}
+		.youwin {
+			color: #0f0;
+		}
+	</style>
+</head>
+<body>
+	<!--<div style="min-width: 250px; max-width:50%; margin: auto;">-->
+		<form action="/chgpass" method="post">
+			<fieldset>
+				<legend>Change Password</legend>
+
+				{% if error is defined %}
+				<p class="error">{{ error }}</p>
+				{% endif %}
+
+				{% if w00t is defined %}
+				<p class="youwin">{{ w00t }}</p>
+				{% endif %}
+
+
+				<div>
+					<label for="username">Username</label>
+					<input type="text" name="username"  value="{{ username }}"/>
+				</div>
+
+				<div>
+					<label for="password">Password</label>
+					<input type="password" name="password" />
+				</div>
+
+				<div>
+					<label for="password1">New password</label>
+					<input type="password" name="password1" />
+				</div>
+
+				<div>
+					<label for="password2">Confirm</label>
+					<input type="password" name="password2" />
+				</div>
+
+				<div>
+					<button type="submit">Change Password</button>
+				</div>
+			</fieldset>
+		</form>
+		<!--</div>-->
+</body>
+</html>
